@@ -6,6 +6,25 @@ html[dir='rtl'] {
 
             }
         }
+        .layout-sidebar {
+            .profile > ul li{
+                text-align: right;
+                float: right;
+                clear: right;
+            }
+            ul .menuitem-badge {
+                float: left;
+            }
+        }
+        .p-scrollpanel {
+            .layout-sidebar-scroll-content {
+                width: calc(90% + 18px);
+            }
+            .p-scrollpanel-bar-y{
+                right: 240px !important;
+           
+        }
+    }
     }
 
     /* Responsive */
