@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { InputSwitch } from 'primereact/inputswitch';
 import classNames from 'classnames';
 
 export class AppInlineProfile extends Component {
@@ -12,24 +13,29 @@ export class AppInlineProfile extends Component {
     }
 
     onClick(event) {
-        this.setState({expanded: !this.state.expanded});
+        this.setState({ expanded: !this.state.expanded });
         event.preventDefault();
     }
 
     render() {
-        return  (
+        return (
             <div className="profile">
                 <div>
                     <img src="assets/layout/images/profile.png" alt="" />
                 </div>
+
                 <button className="p-link profile-link" onClick={this.onClick}>
                     <span className="username">Claire Williams</span>
-                    <i className="pi pi-fw pi-cog"/>
+                    <i className="pi pi-fw pi-cog" />
                 </button>
-                <ul className={classNames({'profile-expanded': this.state.expanded})}>
-                    <li><button className="p-link"><i className="pi pi-fw pi-user"/><span>Account</span></button></li>
-                    <li><button className="p-link"><i className="pi pi-fw pi-inbox"/><span>Notifications</span><span className="menuitem-badge">2</span></button></li>
-                    <li><button className="p-link"><i className="pi pi-fw pi-power-off"/><span>Logout</span></button></li>
+                <div>
+                        <InputSwitch onLabel="rtl" offLabel="ltr" checked={this.state.value} onChange={(e) => { this.setState({ value: e.value }); document.getElementsByTagName('html')[0].setAttribute("dir", e.value ? "rtl" : "ltr") }} />
+                </div>
+                <ul className={classNames({ 'profile-expanded': this.state.expanded })}>
+                    <li><button className="p-link"><i className="pi pi-fw pi-user" /><span>Account</span></button></li>
+                    <li><button className="p-link"><i className="pi pi-fw pi-inbox" /><span>Notifications</span><span className="menuitem-badge">2</span></button></li>
+                    <li><button className="p-link"><i className="pi pi-fw pi-power-off" /><span>Logout</span></button></li>
+
                 </ul>
             </div>
         );
